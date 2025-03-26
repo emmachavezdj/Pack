@@ -127,11 +127,40 @@
       padding: 20px 0;
       color: white;
       font-size: 1rem;
+      position: relative;
     }
     footer a {
       color: #f39c12;
       text-decoration: none;
       margin: 0 10px;
+    }
+    /* Barra de información: Contador, Fecha y Hora */
+    .info-bar {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #222;
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+    /* Botones laterales de descarga */
+    .side-button {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 10px 15px;
+      background-color: #f39c12;
+      color: #333;
+      text-decoration: none;
+      font-size: 0.9rem;
+      border-radius: 5px;
+      z-index: 1000;
+    }
+    .left-button {
+      left: 10px;
+    }
+    .right-button {
+      right: 10px;
     }
   </style>
 </head>
@@ -325,14 +354,52 @@
     </div>
   </section>
 
+  <!-- Barra de información: Contador, Fecha y Hora -->
+  <div class="info-bar">
+    <div>
+      Contador de visitas: <span id="counter">0</span>
+    </div>
+    <div id="datetime"></div>
+  </div>
+
   <footer>
     <p>&copy; 2025 Emmanuel Chavez DJs - Todos los derechos reservados.</p>
     <div>
       <a href="https://www.instagram.com/EMMACHAVEZDJ" target="_blank">@EMMACHAVEZDJ</a>
-      
+    
     </div>
   </footer>
 
+  <!-- Botones laterales de descarga -->
+  <a href="https://www.mediafire.com/file/uc2hn0gnyi5rzet/VirtualDJ_2025_%25288472%2529_Full.iso/file" class="side-button left-button" target="_blank">Descargar Gratis Virtual DJ</a>
+  <a href="https://www.mediafire.com/file/1x8nbxo5xt6y4go/TRAKTOR_PRO.v3.2.0.60-WINDOWS_-%2528ALIENSDJS.blogspot.com%2529.7z/file3" class="side-button right-button" target="_blank">Descargar Traktor 3</a>
+
+  <!-- Script para actualizar la fecha y hora -->
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const dateStr = now.toLocaleDateString('es-ES', options);
+      const timeStr = now.toLocaleTimeString('es-ES');
+      document.getElementById('datetime').textContent = dateStr + ' - ' + timeStr;
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+  </script>
+
+  <!-- Script para el contador de visitas usando CountAPI -->
+  <script>
+    // Asegúrate de crear el contador inicialmente con valor 0 en:
+    // https://api.countapi.xyz/create?namespace=tu-dominio.com&key=counter&value=0
+    fetch('https://api.countapi.xyz/hit/tu-dominio.com/counter')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('counter').innerText = data.value;
+      })
+      .catch(error => console.error('Error con el contador:', error));
+  </script>
+
+  <!-- Script para animaciones al hacer scroll -->
   <script>
     function toggleVisibility(listId) {
       var list = document.getElementById(listId);
@@ -342,7 +409,6 @@
         list.style.display = "none";
       }
     }
-    // Animación al hacer scroll: se agrega la clase "visible" cuando el elemento aparece en pantalla.
     document.addEventListener("DOMContentLoaded", function() {
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -351,12 +417,29 @@
           }
         });
       }, { threshold: 0.2 });
-
       document.querySelectorAll('.pack, .contact, .about').forEach(element => {
         observer.observe(element);
       });
     });
   </script>
+
+  <!-- Integración de chat en vivo fijo usando Tawk.to -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/xxxxxxxxxx/default';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+    // Forzamos que el chat se maximice (fijo y siempre visible)
+    Tawk_API.onLoad = function(){
+      Tawk_API.maximize();
+    };
+  </script>
+
 </body>
 </html>
 
