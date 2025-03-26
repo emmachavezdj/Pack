@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Emmanuel Chavez DJs - Packs de Música</title>
-  <meta name="description" content="Descubre los packs de música de Emmanuel Chavez DJs, disponibles para descarga o compra. Packs mensuales, karaoke y más.">
-  <meta name="keywords" content="Emmanuel Chavez DJs, packs de música, karaoke, compra, descarga, DJ, música, entretenimiento">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
   <style>
-    /* Estilos básicos y reset */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #1e3c72, #2a5298);
       color: white;
       text-align: center;
-      scroll-behavior: smooth;
     }
     header {
       height: 100vh;
@@ -59,26 +55,18 @@
     section {
       padding: 50px 20px;
     }
-    /* Estilo para packs, contacto y sobre mí con animación */
-    .pack, .contact, .about {
+    .pack {
       background: rgba(255, 255, 255, 0.1);
       padding: 20px;
       margin: 20px auto;
       border-radius: 15px;
       max-width: 400px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.5s ease-in-out;
-    }
-    .pack.visible, .contact.visible, .about.visible {
-      opacity: 1;
-      transform: translateY(0);
     }
     ul {
       list-style: none;
       padding: 0;
       margin: 20px 0;
-      display: none; /* Ocultar las carpetas por defecto */
+      display: none;
     }
     li {
       background: rgba(255, 255, 255, 0.2);
@@ -107,60 +95,31 @@
       margin: 15px 0;
       color: #f39c12;
     }
-    /* Estilos del formulario de contacto */
-    .contact form {
-      display: flex;
-      flex-direction: column;
-    }
-    .contact input, .contact textarea {
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: none;
-    }
-    .contact button {
-      width: 50%;
-      margin: 0 auto;
-    }
     footer {
       background-color: #333;
       padding: 20px 0;
       color: white;
       font-size: 1rem;
-      position: relative;
     }
     footer a {
       color: #f39c12;
       text-decoration: none;
-      margin: 0 10px;
     }
-    /* Barra de información: Contador, Fecha y Hora */
-    .info-bar {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      background-color: #222;
-      padding: 10px;
-      font-size: 0.9rem;
-    }
-    /* Botones laterales de descarga */
-    .side-button {
+    
+    /* Botones fijos para descargar Virtual DJ y Traktor */
+    .fixed-buttons {
       position: fixed;
       top: 50%;
+      right: 0;
       transform: translateY(-50%);
-      padding: 10px 15px;
-      background-color: #f39c12;
-      color: #333;
-      text-decoration: none;
-      font-size: 0.9rem;
-      border-radius: 5px;
-      z-index: 1000;
+      z-index: 100;
     }
-    .left-button {
-      left: 10px;
-    }
-    .right-button {
-      right: 10px;
+    .fixed-buttons button {
+      margin: 10px 0;
+      width: 180px;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 10px;
     }
   </style>
 </head>
@@ -178,58 +137,49 @@
       <h3>Enero</h3>
       <p>Batea de Enero completa. Contiene las siguientes carpetas:</p>
       <ul id="enero-list">
-        <li>100% RECOMENDABLES</li>
         <li>AFRO</li>
-        <li>APPEL MUSIC</li>
-        <li>BOLICHEROS</li>
-        <li>BRASILERO FUNK</li>
+        <li>APPLE MUSIC</li>
         <li>CACHENGUE</li>
-        <li>CACHENGUE VIP</li>
-        <li>CHAMAME NUEVO</li>
+        <li>CACHENGUE TROPICAL RETRO</li>
         <li>CUARTETO</li>
         <li>CUARTETO EXTENDED</li>
-        <li>CUARTETO RETRO MIX</li>
-        <li>CUMBIA GOLD SANTAFESINA</li>
+        <li>CUMBIA ORIGINALES ENERO</li>
+        <li>CUMBIA RETRO EXTENDED</li>
+        <li>CUMBIA RETRO RMX</li>
         <li>CUMBIA SANTAFESINA EXTENDED</li>
-        <li>CUMBIA TODO LO NUEVO</li>
-        <li>CUMBIAS 2000</li>
-        <li>DANCE</li>
-        <li>DANCE QUE VUELVEN EN VERANO</li>
-        <li>DISCO NEW</li>
+        <li>CUMBIAS EDIT</li>
+        <li>DANCE ENERO</li>
+        <li>DIFUSION INTER ENERO</li>
+        <li>DIFUSION LATINO ENERO</li>
+        <li>DJ FEDE VALDEZ</li>
         <li>DJ MATIAS CROW</li>
-        <li>GUARACHA</li>
-        <li>HOUSE REMIX</li>
-        <li>INTER DIFUSION A (LO NUEVO)</li>
-        <li>INTER DIFUSION B (LO NUEVO)</li>
-        <li>LATIN MIX</li>
-        <li>LATINOS REMIX A</li>
-        <li>LATINOS REMIX B</li>
-        <li>LIBRERIA FX</li>
-        <li>LIBRERIA SAMPLES LOOPS</li>
+        <li>FUNK REMIXES</li>
+        <li>GUARAHA</li>
+        <li>LATINOS</li>
+        <li>LETINOS RETRO REWORK</li>
         <li>MASHUP</li>
-        <li>MEGAS SET Y SESSIONES</li>
-        <li>NOVEDADES ORIGINALES</li>
-        <li>NUMEROS 1 DE TODOS LOS TIEMPOS</li>
+        <li>MEGAS SET Y SESIONES</li>
+        <li>NOVEDADES</li>
         <li>OPEN SHOW</li>
         <li>PERREO & TURREO</li>
         <li>PLACAS FULL</li>
-        <li>RADIO LATINO DIFUSION A (LO NUEVO)</li>
-        <li>RADIO LATINO DIFUSION B (LO NUEVO)</li>
-        <li>REGGAETON</li>
-        <li>REGGAETON DE AHORA</li>
-        <li>REGGAETON VIEJO</li>
-        <li>REGGAETON Y TRAP LO NUEVO</li>
-        <li>REMIXES A</li>
-        <li>REMIXES B</li>
-        <li>REWORK NEW</li>
+        <li>RADIO INTER ENERO</li>
+        <li>RADIO LATINO ENERO</li>
+        <li>REGGAETON EXTENDED</li>
+        <li>REGGAETON Y TRAP</li>
+        <li>REMIXES 01</li>
+        <li>REMIXES 02</li>
+        <li>REMIXES 03</li>
+        <li>RETRO SELECCION</li>
+        <li>REWORK</li>
         <li>RKT</li>
         <li>ROCK NACIONAL EXTENDED</li>
         <li>TECH HOUSE</li>
         <li>TECHENGUE</li>
       </ul>
-      <p class="price">Gratis</p>
+      <p class="price">$2000</p>
       <button class="toggle-btn" onclick="toggleVisibility('enero-list')">Mostrar Carpetas</button>
-      <button onclick="window.location.href='https://wa.me/2615915946?text=Quiero%20comprar%20el%20pack%20de%20Enero%20y%20es%20gratis.'">Comprar Ahora</button>
+      <button onclick="window.location.href='https://wa.me/2615915946?text=Quiero%20comprar%20el%20pack%20de%20Enero%20por%20$2000.'">Comprar Ahora</button>
     </div>
 
     <!-- Pack Febrero -->
@@ -237,31 +187,52 @@
       <h3>Febrero</h3>
       <p>Batea de Febrero completa. Contiene las siguientes carpetas:</p>
       <ul id="febrero-list">
-        <li>100% RECOMENDADO</li>
         <li>AFRO</li>
         <li>APPLE MUSIC</li>
-        <li>BRESH POP</li>
         <li>CACHENGUE</li>
-        <li>CACHENGUE EXCLUSIVO REGGAETON VIP</li>
-        <li>CARTETO RETRO</li>
-        <li>CHARTS IGUANA EXTENDED</li>
-        <li>CUARTETO</li>
-        <li>CUARTETO EXTENDED</li>
-        <li>CUMBIA</li>
+        <li>CUARTETO FEBRERO 2025</li>
+        <li>CUARTETO REMIX</li>
+        <li>CUMBIA FEBRERO 2025</li>
         <li>CUMBIA REMIX</li>
+        <li>DANCE FEBRERO 2025</li>
+        <li>DEEP TECH</li>
+        <li>DIFUSION INTER FEBRERO 2025</li>
+        <li>DIFUSION LATINO FEBRERO 2025</li>
+        <li>DISCO REWORK</li>
+        <li>ELECTRONICA</li>
+        <li>FIESTA RETRO LATINA</li>
+        <li>HOUSE TECH</li>
+        <li>INDIE DANCE</li>
+        <li>LATINOS RETRO REMIX</li>
+        <li>MASHUP</li>
+        <li>MEGAS SET & SESIONES</li>
+        <li>NACIONAL REMIX</li>
+        <li>OPEN SHOW</li>
+        <li>PERREO TURREO</li>
+        <li>PLACAS FULL</li>
+        <li>REGGAETON REMIX</li>
+        <li>REGGAETON REMIX RETRO</li>
+        <li>REGGAETON Y TRAP</li>
+        <li>REMIXES 01</li>
+        <li>REMIXES 02</li>
+        <li>REMIXES 03</li>
+        <li>REMIXES 04</li>
+        <li>RKT</li>
+        <li>SPECIAL LA FULL REMIX FEBRERO 2025</li>
+        <li>TECHENGUE</li>
+        <li>TRANSICIONES</li>
       </ul>
-      <p class="price">Gratis</p>
+      <p class="price">$2000</p>
       <button class="toggle-btn" onclick="toggleVisibility('febrero-list')">Mostrar Carpetas</button>
-      <button onclick="window.location.href='https://wa.me/2615915946?text=Quiero%20comprar%20el%20pack%20de%20Febrero%20y%20es%20gratis.'">Comprar Ahora</button>
+      <button onclick="window.location.href='https://wa.me/2615915946?text=Quiero%20comprar%20el%20pack%20de%20Febrero%20por%20$2000.'">Comprar Ahora</button>
     </div>
 
     <!-- Pack Karaoke -->
     <div class="pack">
       <h3>Karaoke</h3>
-      <p>Batea de Karaoke completa. Contiene las siguientes carpetas:</p>
+      <p>Pack completo de Karaoke. Contiene las siguientes carpetas:</p>
       <ul id="karaoke-list">
-        <li>Karaoke CUARTETO</li>
-        <li>Karaoke CUMBIA</li>
+       <li>Karaoke CUMBIA</li>
         <li>Karaoke Cumbia Retro 01</li>
         <li>Karaoke Cumbia Retro 02</li>
         <li>Karaoke Cumbia Santafesina</li>
@@ -359,7 +330,7 @@
         <li>FUNK REMIXES</li>
         <li>GUARAHA</li>
         <li>LATINOS</li>
-        <li>LATINOS RETRO REWORK</li>
+        <li>LETINOS RETRO REWORK</li>
         <li>MASHUP</li>
         <li>MEGAS SET Y SESIONES</li>
         <li>NOVEDADES</li>
@@ -386,115 +357,25 @@
     </div>
   </section>
 
-  <!-- Sección Sobre Mí -->
-  <section id="about">
-    <h2>Sobre Mí</h2>
-    <div class="about">
-      <p>Hola, soy Emmanuel Chavez, DJ con más de 10 años de experiencia en la industria musical. Mi pasión es compartir la mejor música y crear experiencias inolvidables para el público. ¡Gracias por visitar mi sitio!</p>
-    </div>
-  </section>
-
-  <!-- Sección de Contacto -->
-  <section id="contact">
-    <h2>Contacto</h2>
-    <div class="contact">
-      <form action="mailto:chavezemma15@gmail.com" method="post" enctype="text/plain">
-        <input type="text" name="nombre" placeholder="Tu nombre" required>
-        <input type="email" name="email" placeholder="Tu correo electrónico" required>
-        <textarea name="mensaje" rows="4" placeholder="Tu mensaje" required></textarea>
-        <button type="submit">Enviar Mensaje</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Barra de información: Contador, Fecha y Hora -->
-  <div class="info-bar">
-    <div>
-      Contador de visitas: <span id="counter">0</span>
-    </div>
-    <div id="datetime"></div>
+  <!-- Botones fijos de descarga -->
+  <div class="fixed-buttons">
+    <button onclick="window.location.href='https://www.mediafire.com/file/uc2hn0gnyi5rzet/VirtualDJ_2025_%25288472%2529_Full.iso/file'">Descargar Virtual DJ</button>
+    <button onclick="window.location.href='https://www.mediafire.com/file/1x8nbxo5xt6y4go/TRAKTOR_PRO.v3.2.0.60-WINDOWS_-%2528ALIENSDJS.blogspot.com%2529.7z/file3'">Descargar Traktor 3</button>
   </div>
 
   <footer>
-    <p>&copy; 2025 Emmanuel Chavez DJs - Todos los derechos reservados.</p>
-    <div>
-      <a href="https://www.instagram.com/EMMACHAVEZDJ" target="_blank">@EMMACHAVEZDJ</a>
-    
-    </div>
+    <p>&copy; 2025 Emmanuel Chavez DJs | <a href="mailto:chavezemma15@gmail.com">Contacto</a></p>
   </footer>
 
-  <!-- Botones laterales de descarga -->
-  <a href="https://www.mediafire.com/file/uc2hn0gnyi5rzet/VirtualDJ_2025_%25288472%2529_Full.iso/file" class="side-button left-button" target="_blank">Descargar Gratis Virtual DJ</a>
-  <a href="https://www.mediafire.com/file/1x8nbxo5xt6y4go/TRAKTOR_PRO.v3.2.0.60-WINDOWS_-%2528ALIENSDJS.blogspot.com%2529.7z/file3" class="side-button right-button" target="_blank">Descargar Traktor 3</a>
-
-  <!-- Script para actualizar la fecha y hora -->
-  <script>
-    function updateDateTime() {
-      const now = new Date();
-      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-      const dateStr = now.toLocaleDateString('es-ES', options);
-      const timeStr = now.toLocaleTimeString('es-ES');
-      document.getElementById('datetime').textContent = dateStr + ' - ' + timeStr;
-    }
-    setInterval(updateDateTime, 1000);
-    updateDateTime();
-  </script>
-
-  <!-- Script para el contador de visitas usando CountAPI -->
-  <script>
-    // Asegúrate de crear el contador inicialmente con valor 0 en:
-    // https://api.countapi.xyz/create?namespace=tu-dominio.com&key=counter&value=0
-    fetch('https://api.countapi.xyz/hit/tu-dominio.com/counter')
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById('counter').innerText = data.value;
-      })
-      .catch(error => console.error('Error con el contador:', error));
-  </script>
-
-  <!-- Script para animaciones al hacer scroll -->
   <script>
     function toggleVisibility(listId) {
       var list = document.getElementById(listId);
-      if (list.style.display === "none" || list.style.display === "") {
-        list.style.display = "block";
-      } else {
-        list.style.display = "none";
-      }
+      list.style.display = (list.style.display === 'none' || list.style.display === '') ? 'block' : 'none';
     }
-    document.addEventListener("DOMContentLoaded", function() {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      }, { threshold: 0.2 });
-      document.querySelectorAll('.pack, .contact, .about').forEach(element => {
-        observer.observe(element);
-      });
-    });
   </script>
-
-  <!-- Integración de chat en vivo fijo usando Tawk.to -->
-  <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-      s1.async=true;
-      s1.src='https://embed.tawk.to/xxxxxxxxxx/default';
-      s1.charset='UTF-8';
-      s1.setAttribute('crossorigin','*');
-      s0.parentNode.insertBefore(s1,s0);
-    })();
-    // Forzamos que el chat se maximice (fijo y siempre visible)
-    Tawk_API.onLoad = function(){
-      Tawk_API.maximize();
-    };
-  </script>
-
 </body>
 </html>
+
 
 
 
